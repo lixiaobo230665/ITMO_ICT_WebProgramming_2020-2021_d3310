@@ -45,3 +45,6 @@ class Update_Car(UpdateView):
     success_url = '/driver_list/'
     template_name = 'update_Car.html'
 
+class Cars(ListView):
+    model = Car
+    template_name = "Cars.html"

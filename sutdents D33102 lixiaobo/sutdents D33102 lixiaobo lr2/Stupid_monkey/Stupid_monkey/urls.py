@@ -27,4 +27,6 @@ path('car_deta/<int:pk>/', views.Car_deta.as_view()),
 path('delete_dirver_deta/<int:pk>/',views.delete_driver_deta),
 path('create_Car/',views.create_view),
 path('delete_Car_deta/<int:pk>/',views.delete_Car_data),
-path('update_Car/<int:pk>/',views.Update_Car.as_view()),]
+path('update_Car/<int:pk>/',views.Update_Car.as_view()),
+path('Cars/',views.Cars.as_view())
+]
