@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dscipline</title>
+</head>
+<body>
+{% extends "base.html" %}
+  {% block nav %} {{ block.super }}
+<h3>ID:{{ L.id }}</h3>
+<a href="/HW/hw_data/{{ L.id }}"><p>{{ L.discipline }}</p></a>
+<h2>Teachers:</h2>
+{% for ts in Lts %}
+    <p>name:{{ ts.name }}</p>
+{% endfor %}
+<hr>
+<h3>ID:{{ M.id }}</h3>
+<a href="/HW/hw_data/{{ M.id }}"><p>{{ M.discipline }}</p></a>
+<h2>Teachers:</h2>
+{% for ts in Mts %}
+    <p>name:{{ ts.name }}</p>
+{% endfor %}
+<hr>
+<h3>ID:{{ P.id }}</h3>
+<a href="/HW/hw_data/{{ P.id }}"><p>{{ P.discipline }}</p></a>
+<h2>Teachers:</h2>
+{% for ts in Pts %}
+    <p>name:{{ ts.name }}</p>
+{% endfor %}
+<hr>
+<button><a href="/HW/student_list/">student_list</a></button>
+{% endblock %}
+</body>
+</html>

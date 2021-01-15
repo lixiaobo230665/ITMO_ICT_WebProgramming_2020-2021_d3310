@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Data</title>
+</head>
+<body>
+{% extends "base.html" %}
+  {% block nav %} {{ block.super }}
+<h3>Name:{{ student.name }}</h3>
+<li>ID:{{ student.id }}</li>
+<hr>
+<h3>HomeWorke:</h3>
+<table style="width: 1600px;margin: auto">
+    <caption>Homwork</caption>
+    <tr>
+        <td>Number</td>
+        <td>execution_period</td>
+        <td>task_text</td>
+        <td>date_issue</td>
+        <td>penalty</td>
+        <td>discipline</td>
+        <td>score</td>
+        <td>Completion_date</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    {% for h in student.performance_set.all %}
+        <tr>
+        <td width="200" height="80">{{ h.id_student.name }},{{ forloop.counter }} HW</td>
+        <td width="200" height="80">{{ h.id_homeworke.execution_period }}</td>
+        <td width="200" height="80">{{ h.id_homeworke.task_text }}</td>
+        <td width="200" height="80">{{ h.id_homeworke.date_issue }}</td>
+        <td width="200" height="80">{{ h.id_homeworke.penalty }}</td>
+        <td width="200" height="80">{{ h.id_homeworke.id_discipline.discipline }}</td>
+        <td width="200" height="80">{{ h.score }}</td>
+        <td width="200" height="80">{{ h.Completion_date|date:"F j,Y" }}</td>
+        <td width="200" height="80"><button><a href="/HW/p_list/{{ h.id }}">Up</a></button></td>
+        <td width="200" height="80"><button><a href="/HW/del_hw/{{ h.id }}">Del</a></button></td>
+
+    {% endfor %}
+    </tr>
+</table>
+
+
+<hr>
+<button><a href="/HW/set_hw/">add HW</a></button>
+<button><a href="/HW/add_hw/">set hw</a></button>
+<button><a href="/HW/student_list/">Get Back</a></button>
+
+{% endblock %}
+</body>
+</html>

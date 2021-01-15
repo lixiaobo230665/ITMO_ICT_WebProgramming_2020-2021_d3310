@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ di.id }}</title>
+</head>
+<body>
+
+  {% block nav %} {{ block.super }}
+<h2>{{ di.discipline }}</h2>
+<hr>
+<hr>
+{% for h in hs %}
+    <p>task_text:{{ h.task_text }}</p>
+    <p>penalty:{{ h.penalty }}</p>
+    <p>execution_period:{{ h.execution_period }}</p>
+    <p>date_issue:{{h.date_issue| date:"F j,Y"}}</p>
+    <p><a href="/HW/hw_updata/{{h.id}}">updata</a> </p>
+    <p><a href="/HW/del_HW/{{h.id}}">Delete</a> </p>
+    <hr>
+{% endfor %}
+<button><a href="/HW/dis_list">Dis_list</a></button>
+<button><a href="/HW/set_hw/">Set HW</a></button>
+{% endblock %}
+</body>
+</html>
